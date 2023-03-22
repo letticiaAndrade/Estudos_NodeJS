@@ -35,13 +35,29 @@ App.post("/livros", (req, res) => {
 });
 
 App.put("/livros/:id", (req, res) => {
-  let { livro, position} = buscaLivro(req.params.id);
+  let { livro, position } = buscaLivro(req.params.id);
   livro = {
     id: livro.id,
     ...req.body,
   };
   livros[position] = livro;
   res.status(200).json(livros[position]);
+});
+
+App.delete("/livros/:id", (req, res) => {
+  let { position } = buscaLivro(req.params.id);
+  console.log(position);
+  if (position >= 0) {
+    livros.splice(position, 1);
+    res.status(200).json({
+      message: "produto apagado com sucesso!",
+    });
+  } else {
+    res.status(404).json({
+      error: true,
+      message: " seu produto não foi encontrado",
+    });
+  }
 });
 
 function buscaLivro(id) {
