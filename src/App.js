@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./config/dbConnect.js";
+import livros from "./models/Livros.js"
 
 db.on("error", console.log.bind(console, "Erro de conexão"))
 db.once("open", ()=> {
@@ -8,10 +9,10 @@ db.once("open", ()=> {
 )
 const App = express();
 App.use(express.json());
-const livros = [
-  { id: 1, título: "Senhor dos aneis" },
-  { id: 2, título: "O Hobiit" },
-];
+// const livros = [
+//   { id: 1, título: "Senhor dos aneis" },
+//   { id: 2, título: "O Hobiit" },
+// ];
 
 
 App.get("/", (req, res) => {
@@ -19,7 +20,9 @@ App.get("/", (req, res) => {
 });
 
 App.get("/livros", (req, res) => {
-  res.status(200).json(livros);
+  livros.find((err, livros) =>{
+  res.status(200).json(livros)
+  })
 });
 
 App.get("/livros/:id", (req, res) => {
