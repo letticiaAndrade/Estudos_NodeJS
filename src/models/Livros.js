@@ -16,7 +16,7 @@ const livroSchema = new mongoose.Schema(
 // const livros= mongoose.model()
 
 // criar uma coleção chamada livros 
-// const livros= mongoose.model(livros);
+// const livros= mongoose.model('livros');
 const livros= mongoose.model('livros', livroSchema);
 
 export default livros;
