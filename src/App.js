@@ -3,7 +3,7 @@ import db from "./config/dbConnect.js";
 import livros from "./models/Livros.js"
 
 db.on("error", console.log.bind(console, "Erro de conexão"))
-db.once("open", ()=> {
+db.once("open", () => {
   console.log("Conexão com o banco feita com sucesso!")
 }
 )
@@ -14,14 +14,13 @@ App.use(express.json());
 //   { id: 2, título: "O Hobiit" },
 // ];
 
-
 App.get("/", (req, res) => {
   res.status(200).send("Curso de Node");
 });
 
 App.get("/livros", (req, res) => {
-  livros.find((err, livros) =>{
-  res.status(200).json(livros)
+  livros.find((err, livros) => {
+    res.status(200).json(livros)
   })
 });
 
