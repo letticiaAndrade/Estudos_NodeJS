@@ -1,8 +1,8 @@
 import livros from "../models/Livros.js";
 
-const LivroController = () => {
+class LivroController {
 
-    const listarLivros = (req, res) => {
+    static listarLivros = (req, res) => {
         livros.find((err, livros) => {
             res.status(200).json(livros)
         })
