@@ -7,4 +7,5 @@ router
     // se houver uma requisição do tipo get em livros faça isso
     .get("/livros", LivroController.listarLivros)
     .post("/livros", LivroController.cadastrarLivro)
+    .put("/livros/:id", LivroController.atualizarLivro)
 export default router;
