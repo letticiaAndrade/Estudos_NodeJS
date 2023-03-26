@@ -23,15 +23,6 @@ App.get("/livros/:id", (req, res) => {
     });
 });
 
-App.post("/livros", (req, res) => {
-  livros.push({
-    id: livros.length + 1,
-    ...req.body,
-  });
-
-  res.status(201).send("Livro foi cadastrado com sucesso!");
-});
-
 App.put("/livros/:id", (req, res) => {
   let { livro, position } = buscaLivro(req.params.id);
   livro = {
