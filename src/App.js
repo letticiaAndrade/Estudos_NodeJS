@@ -23,13 +23,4 @@ routes(App);
 //});
 //});
 
-
-function buscaLivro(id) {
-  const livro = livros.find((livros) => livros.id == id);
-  const position = livros.findIndex((livros) => livros.id == id);
-  return {
-    livro: livro,
-    position: position,
-  };
-}
 export default App;
