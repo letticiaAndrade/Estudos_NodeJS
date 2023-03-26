@@ -13,15 +13,15 @@ App.use(express.json());
 
 routes(App);
 
-App.get("/livros/:id", (req, res) => {
-  const result = livros[req.params.id];
-  if (result) res.status(200).json(result);
-  else
-    res.status(404).json({
-      error: true,
-      message: "Livro não encontrado",
-    });
-});
+//App.get("/livros/:id", (req, res) => {
+// const result = livros[req.params.id];
+//if (result) res.status(200).json(result);
+//else
+// res.status(404).json({
+// error: true,
+//message: "Livro não encontrado",
+//});
+//});
 
 App.delete("/livros/:id", (req, res) => {
   let { position } = buscaLivro(req.params.id);
