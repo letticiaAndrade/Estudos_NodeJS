@@ -23,21 +23,6 @@ routes(App);
 //});
 //});
 
-App.delete("/livros/:id", (req, res) => {
-  let { position } = buscaLivro(req.params.id);
-  console.log(position);
-  if (position >= 0) {
-    livros.splice(position, 1);
-    res.status(200).json({
-      message: "produto apagado com sucesso!",
-    });
-  } else {
-    res.status(404).json({
-      error: true,
-      message: " seu produto não foi encontrado",
-    });
-  }
-});
 
 function buscaLivro(id) {
   const livro = livros.find((livros) => livros.id == id);
