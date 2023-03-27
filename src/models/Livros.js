@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 // um schema, modelo de atributos
 const livroSchema = new mongoose.Schema(
     {
